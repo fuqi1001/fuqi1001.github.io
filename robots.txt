@@ -13,4 +13,3 @@ Disallow: /search/
 Disallow: /tags/
 
 Sitemap: http://qifuuu.com/sitemap.xml
-Sitemap: http://qifuuu.com/baidusitemap.xml
