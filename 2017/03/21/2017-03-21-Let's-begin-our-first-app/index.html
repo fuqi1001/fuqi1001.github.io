@@ -6,7 +6,7 @@
   <meta name="google-site-verification" content="Rbcp6f4xqLj0DF5t2cFlNLbHq1W2vbrLPL6HoCx9Rt8" />
   <meta name="baidu-site-verification" content="S56pX4djhn" />
   
-    <title>283. Move Zeroes | Qi Fu&#39;s blog</title>
+    <title>Modules and Applications | Qi Fu&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Qi Fu">
@@ -15,19 +15,25 @@
     
 
     <meta name="keywords" content="傅琦, fuqi1001, qifu, fuqi1001.github.io, Qi Fu&#39;s blog, qifuuu">
-    <meta name="description" content="Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.
-For example, given nums = [0, 1, 0, 3, 12], after calling your fun">
+    <meta name="description" content="Structure of a Node AppWhat is a Node app?Ultimately, you can view a node app as a series of scripts that are run together.
+A web application, for example, would have the following scripts
+
+A script t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="283. Move Zeroes">
-<meta property="og:url" content="http://qifuuu.com/2017/02/19/2017-02-19-move-zeros/index.html">
+<meta property="og:title" content="Modules and Applications">
+<meta property="og:url" content="http://qifuuu.com/2017/03/21/2017-03-21-Let's-begin-our-first-app/index.html">
 <meta property="og:site_name" content="Qi Fu's blog">
-<meta property="og:description" content="Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.
-For example, given nums = [0, 1, 0, 3, 12], after calling your fun">
-<meta property="og:updated_time" content="2017-03-18T03:59:51.000Z">
+<meta property="og:description" content="Structure of a Node AppWhat is a Node app?Ultimately, you can view a node app as a series of scripts that are run together.
+A web application, for example, would have the following scripts
+
+A script t">
+<meta property="og:updated_time" content="2017-03-21T04:05:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="283. Move Zeroes">
-<meta name="twitter:description" content="Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.
-For example, given nums = [0, 1, 0, 3, 12], after calling your fun">
+<meta name="twitter:title" content="Modules and Applications">
+<meta name="twitter:description" content="Structure of a Node AppWhat is a Node app?Ultimately, you can view a node app as a series of scripts that are run together.
+A web application, for example, would have the following scripts
+
+A script t">
 
     
     <link rel="alternative" href="/atom.xml" title="Qi Fu&#39;s blog" type="application/atom+xml">
@@ -82,14 +88,14 @@ For example, given nums = [0, 1, 0, 3, 12], after calling your fun">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/02/19/2017-02-19-move-zeros/" title="283. Move Zeroes" itemprop="url">283. Move Zeroes</a>
+      <a href="/2017/03/21/2017-03-21-Let's-begin-our-first-app/" title="Modules and Applications" itemprop="url">Modules and Applications</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Qi Fu" target="_blank" itemprop="author">Qi Fu</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-19T05:00:00.000Z" itemprop="datePublished"> 发表于 2017-02-19</time>
+    <time datetime="2017-03-21T04:00:00.000Z" itemprop="datePublished"> 发表于 2017-03-21</time>
     
   </p>
 </header>
@@ -98,38 +104,92 @@ For example, given nums = [0, 1, 0, 3, 12], after calling your fun">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-1"><span class="toc-number">1.</span> <span class="toc-text">Solution 1:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code"><span class="toc-number">1.1.</span> <span class="toc-text">Code</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-2"><span class="toc-number">2.</span> <span class="toc-text">Solution 2:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-1"><span class="toc-number">2.1.</span> <span class="toc-text">Code</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-3"><span class="toc-number">3.</span> <span class="toc-text">Solution 3:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-2"><span class="toc-number">3.1.</span> <span class="toc-text">Code</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Structure-of-a-Node-App"><span class="toc-number">1.</span> <span class="toc-text">Structure of a Node App</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-a-Node-app"><span class="toc-number">1.1.</span> <span class="toc-text">What is a Node app?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-makes-an-app"><span class="toc-number">1.2.</span> <span class="toc-text">What makes an app?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#package-json"><span class="toc-number">1.2.1.</span> <span class="toc-text">package.json</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Installing-the-app"><span class="toc-number">1.3.</span> <span class="toc-text">Installing the app</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-the-app"><span class="toc-number">1.4.</span> <span class="toc-text">Using the app</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setting-up-you-application"><span class="toc-number">1.5.</span> <span class="toc-text">Setting up you application</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Let’s-design-a-prompt-calculator-app"><span class="toc-number">1.6.</span> <span class="toc-text">Let’s design a prompt calculator app</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-a-module"><span class="toc-number">1.7.</span> <span class="toc-text">What is a module?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Require"><span class="toc-number">1.7.1.</span> <span class="toc-text">Require</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-do-I-make-my-code-‘requirable’"><span class="toc-number">1.7.2.</span> <span class="toc-text">How do I make my code ‘requirable’?</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<p>Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.</p>
-<p>For example, given <code>nums = [0, 1, 0, 3, 12]</code>, after calling your function, nums should be <code>[1, 3, 12, 0, 0]</code>.<br><a id="more"></a><br>Note:</p>
-<ol>
-<li><p>You must do this in-place without making a copy of the array.</p>
-</li>
-<li><p>Minimize the total number of operations.</p>
-</li>
-</ol>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1:"></a>Solution 1:</h2><p>Straight forward:</p>
-<p>Traversal the array, use a variable keep the current number position, and use a variable to find a number not <code>0</code> after the current number</p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> find = start;</div><div class="line">        <span class="keyword">while</span>(start &lt; nums.length)&#123;</div><div class="line">            <span class="keyword">if</span>(nums[start] == <span class="number">0</span>)&#123;</div><div class="line">                <span class="keyword">while</span>(find &lt; nums.length - <span class="number">1</span> &amp;&amp; nums[find] == <span class="number">0</span> ) find++;</div><div class="line">                <span class="keyword">if</span>(nums[find] != <span class="number">0</span>)&#123;</div><div class="line">                    <span class="keyword">int</span> temp = nums[find];</div><div class="line">                    nums[find] = nums[start];</div><div class="line">                    nums[start] = temp;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">//if current number is 0, and search until the last number still be 0. All zeros have been move, end the loop</span></div><div class="line">            <span class="keyword">if</span>(nums[start] == <span class="number">0</span> &amp;&amp; find &gt;= nums.length - <span class="number">1</span>) <span class="keyword">break</span>;            </div><div class="line">            start++;</div><div class="line">            find = start;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2:"></a>Solution 2:</h2><p>Use a variable <code>zero</code> to keep how many zeros have been found. If current position number <code>nums[i]</code> is not zero, we can move the number to <code>nums[i-zeros]</code>, and set <code>nums[i]</code> to <code>0</code>.</p>
-<h3 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; nums.length ; i++)&#123;</div><div class="line">            <span class="keyword">int</span> val = nums[i];</div><div class="line">            <span class="keyword">int</span> zeros = <span class="number">0</span>;</div><div class="line">            <span class="keyword">if</span>(val == <span class="number">0</span>)&#123;</div><div class="line">                zeros++;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span>&#123;</div><div class="line">                nums[i] = <span class="number">0</span>;</div><div class="line">                nums[i - zeros] = val;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution 3:"></a>Solution 3:</h2><p>Use a variable <code>pos</code> to keep the position where the number is not <code>0</code>, and traversal the array, move the not zero number to <code>pos</code>, until the end of the array. Set all number after <code>pos</code> to <code>0</code>.</p>
-<h3 id="Code-2"><a href="#Code-2" class="headerlink" title="Code"></a>Code</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>, pos = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</div><div class="line">            <span class="keyword">if</span>(nums[i] != <span class="number">0</span>)&#123;</div><div class="line">                nums[pos]= nums[i];</div><div class="line">                pos++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(;pos&lt;nums.length; pos++)&#123;</div><div class="line">            nums[pos] = <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>  
+		<h2 id="Structure-of-a-Node-App"><a href="#Structure-of-a-Node-App" class="headerlink" title="Structure of a Node App"></a>Structure of a Node App</h2><h3 id="What-is-a-Node-app"><a href="#What-is-a-Node-app" class="headerlink" title="What is a Node app?"></a>What is a Node app?</h3><p>Ultimately, you can view a node app as a series of scripts that are run together.</p>
+<p>A web application, for example, would have the following scripts</p>
+<ul>
+<li>A script that, when run, listens on port 3000 for HTTP requests to retrieve data</li>
+<li>A second script that runs as a background process and researches information to add to the databases</li>
+<li>A third script that analyzes newly researched information and creates statistics on the new data</li>
+</ul>
+<h3 id="What-makes-an-app"><a href="#What-makes-an-app" class="headerlink" title="What makes an app?"></a>What makes an app?</h3><p>Generally, your application will have the following structure in this course;<br>Project folder</p>
+<ul>
+<li>package.json; describes the application, and its dependencies</li>
+<li>node_modules/; stores all the dependencies</li>
+<li>server.js; initializes and runs a server</li>
+<li>views/</li>
+<li>static/</li>
+</ul>
+<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><p>The package.json stores information about your project</p>
+<ul>
+<li>Name</li>
+<li>Repository</li>
+<li>License Type</li>
+<li>List of dependencies</li>
+<li>List of developer dependencie◦</li>
+<li>Start comman</li>
+</ul>
+<p>When starting a project, navigate to your folder and use the npm init command to interactivel create the start of that file</p>
+<p><strong>Dependencies</strong></p>
+<p>It would be very difficult to reinvent every component of an application, every time you start coding.</p>
+<p>Node allows authors to publish their code online on Github or on NPM (Node Package Manager); anyone can then download their code through the npm application and install it as a dependency towards a project.</p>
+<p>References to these dependencies can be saved to your package.json file. Dependencies are exposed in the form of modules. You can install dependencies with the following command:</p>
+<ul>
+<li>npm install PACKAGENAME –save</li>
+<li>You must include –save to save it to your package.json file</li>
+<li>Points will be deducted if you do not save all your dependencies.</li>
+</ul>
+<h3 id="Installing-the-app"><a href="#Installing-the-app" class="headerlink" title="Installing the app"></a>Installing the app</h3><p>Node runs off of a series of dependencies, which are managed through the package manager, NPM When download a node application, you will be downloading it without dependencies, so you must install them on download</p>
+<ul>
+<li>npm install</li>
+<li>Dependencies are stored in the node_modules folder</li>
+</ul>
+<h3 id="Using-the-app"><a href="#Using-the-app" class="headerlink" title="Using the app"></a>Using the app</h3><p>Once your dependencies are installed, you can start your app</p>
+<ul>
+<li>npm start</li>
+<li>This will scan your package.json folder and run the file that is registered as your application entry point</li>
+</ul>
+<h3 id="Setting-up-you-application"><a href="#Setting-up-you-application" class="headerlink" title="Setting up you application"></a>Setting up you application</h3><p>When setting up an application, you will do the following steps:</p>
+<ul>
+<li>Make a new folder for the application</li>
+<li>Run npm init and go through the walkthrough</li>
+<li>Open package.json and update the “scripts” section and add a property of:</li>
+<li>“start”: “node app.js”</li>
+<li>Where app.js is the name of the file you want to run on start</li>
+<li>Install your dependencies and save them to the package</li>
+<li>npm install PACKAGENAME –save</li>
+<li>Write some code in your starting file</li>
+<li>Run app with npm start</li>
+</ul>
+<h3 id="Let’s-design-a-prompt-calculator-app"><a href="#Let’s-design-a-prompt-calculator-app" class="headerlink" title="Let’s design a prompt calculator app"></a>Let’s design a prompt calculator app</h3><p>Demo code for a calculator app ➡️  <a href="https://github.com/fuqi1001/Web-programming-tutorial/tree/master/lecture_02/calculator_app_example" target="_blank" rel="external">git</a></p>
+<h3 id="What-is-a-module"><a href="#What-is-a-module" class="headerlink" title="What is a module?"></a>What is a module?</h3><p>Generally, a module is an individual unit that can be plugged into another system or codebase with relative ease. Modules do not have to be related, allowing you to write a system that allows many different things to interact with each other by writing code that glues them all together.</p>
+<p>They are very flexible, and allow you to organize your code very well!<br>In Node.js, you will be using modules everywhere. In our case, a module will be a specific object (think, an instance of a class) that has certain methods and data that you can access from other scripts.</p>
+<h4 id="Require"><a href="#Require" class="headerlink" title="Require"></a>Require</h4><p>There is a special, global function called require, which will allow you to import code from other files, packages, etc.</p>
+<p>When you require a file / package, you will be accessing whatever the programmer assigned to be exported in that file. From there, you can use the code.</p>
+<p>This allows you to make very small, isolated code that performs related functions.</p>
+<h4 id="How-do-I-make-my-code-‘requirable’"><a href="#How-do-I-make-my-code-‘requirable’" class="headerlink" title="How do I make my code ‘requirable’?"></a>How do I make my code ‘requirable’?</h4><p>There is another global variable called module, which has a property called exports on it.</p>
+<p>When you require a file / package, it will take whatever is assigned to the module.exports<br>variable in a package. You can export anything you want: a function, a number, or an object that allows you to do any combination of these things.</p>
+<p>You can see an example of this in the <code>my_module.js</code> and <code>requiring_my_module.js</code><br>files.</p>
+<p>You can use those files in order to get started making your own modules!</p>
+<p><strong> DEOM is Here </strong></p>
+<p><a href="https://github.com/fuqi1001/Web-programming-tutorial/tree/master/lecture_02/calculator_module_example" target="_blank" rel="external">git</a></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+  <a class="article-category-link" href="/categories/web-programming/">web programming</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/LeetCode/">LeetCode</a>
+  <span></span> <a href="/tags/JavaScript/">JavaScript</a>
   </div>
 
 </div>
@@ -138,7 +198,7 @@ For example, given nums = [0, 1, 0, 3, 12], after calling your fun">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://qifuuu.com/2017/02/19/2017-02-19-move-zeros/" data-title="283. Move Zeroes | Qi Fu&#39;s blog" data-tsina="511934579" class="share clearfix">
+	  <div data-url="http://qifuuu.com/2017/03/21/2017-03-21-Let's-begin-our-first-app/" data-title="Modules and Applications | Qi Fu&#39;s blog" data-tsina="511934579" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -151,19 +211,11 @@ For example, given nums = [0, 1, 0, 3, 12], after calling your fun">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/02/19/2017-02-19-unique-path/" title="62. Unique Paths">
-  <strong>上一篇：</strong><br/>
-  <span>
-  62. Unique Paths</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/02/19/2017-02-19-Copy-list-with-random-point/"  title="138. Copy List with Random Pointer">
+<a href="/2017/03/20/2017-03-20-Intro-to-JavaScript/"  title="Intro to JavaScript">
  <strong>下一篇：</strong><br/> 
- <span>138. Copy List with Random Pointer
+ <span>Intro to JavaScript
 </span>
 </a>
 </div>
@@ -184,7 +236,7 @@ For example, given nums = [0, 1, 0, 3, 12], after calling your fun">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-1"><span class="toc-number">1.</span> <span class="toc-text">Solution 1:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code"><span class="toc-number">1.1.</span> <span class="toc-text">Code</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-2"><span class="toc-number">2.</span> <span class="toc-text">Solution 2:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-1"><span class="toc-number">2.1.</span> <span class="toc-text">Code</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-3"><span class="toc-number">3.</span> <span class="toc-text">Solution 3:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-2"><span class="toc-number">3.1.</span> <span class="toc-text">Code</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Structure-of-a-Node-App"><span class="toc-number">1.</span> <span class="toc-text">Structure of a Node App</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-a-Node-app"><span class="toc-number">1.1.</span> <span class="toc-text">What is a Node app?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-makes-an-app"><span class="toc-number">1.2.</span> <span class="toc-text">What makes an app?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#package-json"><span class="toc-number">1.2.1.</span> <span class="toc-text">package.json</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Installing-the-app"><span class="toc-number">1.3.</span> <span class="toc-text">Installing the app</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-the-app"><span class="toc-number">1.4.</span> <span class="toc-text">Using the app</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setting-up-you-application"><span class="toc-number">1.5.</span> <span class="toc-text">Setting up you application</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Let’s-design-a-prompt-calculator-app"><span class="toc-number">1.6.</span> <span class="toc-text">Let’s design a prompt calculator app</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-a-module"><span class="toc-number">1.7.</span> <span class="toc-text">What is a module?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Require"><span class="toc-number">1.7.1.</span> <span class="toc-text">Require</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-do-I-make-my-code-‘requirable’"><span class="toc-number">1.7.2.</span> <span class="toc-text">How do I make my code ‘requirable’?</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
