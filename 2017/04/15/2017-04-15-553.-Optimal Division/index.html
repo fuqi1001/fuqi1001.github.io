@@ -6,7 +6,7 @@
   <meta name="google-site-verification" content="Rbcp6f4xqLj0DF5t2cFlNLbHq1W2vbrLPL6HoCx9Rt8" />
   <meta name="baidu-site-verification" content="S56pX4djhn" />
   
-    <title>63. Unique Paths II | Qi Fu&#39;s blog</title>
+    <title>Optimal Division | Qi Fu&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Qi Fu">
@@ -15,22 +15,19 @@
     
 
     <meta name="keywords" content="傅琦, fuqi1001, qifu, fuqi1001.github.io, Qi Fu&#39;s blog, qifuuu">
-    <meta name="description" content="Follow up for “Unique Paths”:
-Now consider if some obstacles are added to the grids. How many unique paths would there be?
-An obstacle and empty space is marked as 1 and 0 respectively in the grid.">
+    <meta name="description" content="Given a list of positive integers, the adjacent integers will perform the float division. For example, [2,3,4] -&amp;gt; 2 / 3 / 4.
+However, you can add any number of parenthesis at any position to change">
 <meta property="og:type" content="article">
-<meta property="og:title" content="63. Unique Paths II">
-<meta property="og:url" content="http://qifuuu.com/2017/02/19/2017-02-19-PathII/index.html">
+<meta property="og:title" content="Optimal Division">
+<meta property="og:url" content="http://qifuuu.com/2017/04/15/2017-04-15-553.-Optimal Division/index.html">
 <meta property="og:site_name" content="Qi Fu's blog">
-<meta property="og:description" content="Follow up for “Unique Paths”:
-Now consider if some obstacles are added to the grids. How many unique paths would there be?
-An obstacle and empty space is marked as 1 and 0 respectively in the grid.">
-<meta property="og:updated_time" content="2017-03-18T04:01:48.000Z">
+<meta property="og:description" content="Given a list of positive integers, the adjacent integers will perform the float division. For example, [2,3,4] -&amp;gt; 2 / 3 / 4.
+However, you can add any number of parenthesis at any position to change">
+<meta property="og:updated_time" content="2017-04-16T03:21:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="63. Unique Paths II">
-<meta name="twitter:description" content="Follow up for “Unique Paths”:
-Now consider if some obstacles are added to the grids. How many unique paths would there be?
-An obstacle and empty space is marked as 1 and 0 respectively in the grid.">
+<meta name="twitter:title" content="Optimal Division">
+<meta name="twitter:description" content="Given a list of positive integers, the adjacent integers will perform the float division. For example, [2,3,4] -&amp;gt; 2 / 3 / 4.
+However, you can add any number of parenthesis at any position to change">
 
     
     <link rel="alternative" href="/atom.xml" title="Qi Fu&#39;s blog" type="application/atom+xml">
@@ -85,14 +82,14 @@ An obstacle and empty space is marked as 1 and 0 respectively in the grid.">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/02/19/2017-02-19-PathII/" title="63. Unique Paths II" itemprop="url">63. Unique Paths II</a>
+      <a href="/2017/04/15/2017-04-15-553.-Optimal Division/" title="Optimal Division" itemprop="url">Optimal Division</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Qi Fu" target="_blank" itemprop="author">Qi Fu</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-19T05:00:00.000Z" itemprop="datePublished"> 發表於 2017-02-19</time>
+    <time datetime="2017-04-15T04:00:00.000Z" itemprop="datePublished"> 發表於 2017-04-15</time>
     
   </p>
 </header>
@@ -101,24 +98,31 @@ An obstacle and empty space is marked as 1 and 0 respectively in the grid.">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-1"><span class="toc-number">1.</span> <span class="toc-text">Solution 1:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code"><span class="toc-number">1.1.</span> <span class="toc-text">Code</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">1.</span> <span class="toc-text">Solution:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code"><span class="toc-number">1.1.</span> <span class="toc-text">Code:</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>Follow up for “Unique Paths”:</p>
-<p>Now consider if some obstacles are added to the grids. How many unique paths would there be?</p>
-<p>An obstacle and empty space is marked as 1 and 0 respectively in the grid.</p>
+		<p>Given a list of <strong>positive integers</strong>, the adjacent integers will perform the float division. For example, [2,3,4] -&gt; 2 / 3 / 4.</p>
+<p>However, you can add any number of parenthesis at any position to change the priority of operations. You should find out how to add parenthesis to get the maximum result, and return the corresponding expression in string format. <strong>Your expression should NOT contain redundant parenthesis.</strong></p>
 <a id="more"></a>
-<p>For example,<br>There is one obstacle in the middle of a 3x3 grid as illustrated below.</p>
-<pre><code>[
-  [0,0,0],
-  [0,1,0],
-  [0,0,0]
-]
-</code></pre><p>The total number of unique paths is 2.</p>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1:"></a>Solution 1:</h2><p>Same as ‘Unique Paths’, if reach <code>1</code>, set that dp[][] to <code>0</code>.<br>Set first row and col, if reach <code>1</code> just break, after that point all can be get.</p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> m = obstacleGrid.length;</div><div class="line">        <span class="keyword">int</span> n = obstacleGrid[<span class="number">0</span>].length;</div><div class="line">        <span class="comment">//if(m == 1 || n == 1) return 1;</span></div><div class="line">        </div><div class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</div><div class="line">            <span class="keyword">if</span>(obstacleGrid[i][<span class="number">0</span>] != <span class="number">1</span>)&#123;</div><div class="line">                dp[i][<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)&#123;</div><div class="line">            <span class="keyword">if</span>(obstacleGrid[<span class="number">0</span>][j] != <span class="number">1</span>)&#123;</div><div class="line">                dp[<span class="number">0</span>][j] = <span class="number">1</span>;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; j++)&#123;</div><div class="line">                <span class="keyword">if</span>(obstacleGrid[i][j] != <span class="number">1</span>)&#123;</div><div class="line">                    dp[i][j] = dp[i-<span class="number">1</span>][j] + dp[i][j - <span class="number">1</span>];</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    dp[i][j] = <span class="number">0</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> dp[m-<span class="number">1</span>][n-<span class="number">1</span>];</div><div class="line">    &#125;        </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="keyword">int</span>[][] obstacleGrid)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = obstacleGrid[<span class="number">0</span>].length;</div><div class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[len];</div><div class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>[] row : obstacleGrid)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</div><div class="line">                <span class="keyword">if</span>(row[i] == <span class="number">1</span>)&#123;</div><div class="line">                    dp[i] = <span class="number">0</span>;</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span>(i &gt; <span class="number">0</span>)&#123;</div><div class="line">                    dp[i] += dp[i - <span class="number">1</span>];</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> dp[len-<span class="number">1</span>];</div><div class="line">    &#125;</div></pre></td></tr></table></figure>  
+<p><strong>Example：</strong></p>
+<pre><code>Input: [1000,100,10,2]
+Output: &quot;1000/(100/10/2)&quot;
+Explanation:
+1000/(100/10/2) = 1000/((100/10)/2) = 200
+However, the bold parenthesis in &quot;1000/((100/10)/2)&quot; are redundant, since they don&apos;t influence the operation priority. So you should return &quot;1000/(100/10/2)&quot;. 
+
+Other cases:
+1000/(100/10)/2 = 50
+1000/(100/(10/2)) = 50
+1000/100/10/2 = 0.5
+1000/100/(10/2) = 2
+</code></pre><p><strong>Note:</strong></p>
+<pre><code>1. The length of the input array is [1, 10].
+2. Elements in the given array will be in range [2, 1000].
+3. There is only one optimal division for each test case.
+</code></pre><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h2><p>You only need to mininize b here, because all the c/d/…will be flipped to the numerator position</p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">optimalDivision</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(nums.length == <span class="number">1</span>) <span class="keyword">return</span> nums[<span class="number">0</span>]+<span class="string">""</span>;</div><div class="line">        <span class="keyword">if</span>(nums.length == <span class="number">2</span>) &#123;</div><div class="line">            String res= nums[<span class="number">0</span>] +<span class="string">"/"</span>+nums[<span class="number">1</span>];</div><div class="line">            <span class="keyword">return</span> res;</div><div class="line">        &#125;</div><div class="line">        String res = nums[<span class="number">0</span>] +<span class="string">"/"</span>;</div><div class="line">        String temp = nums[<span class="number">1</span>]+<span class="string">""</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            temp+= <span class="string">"/"</span>+nums[i];</div><div class="line">        &#125;</div><div class="line">        res = res + <span class="string">"("</span> +temp+ <span class="string">")"</span>;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -140,7 +144,7 @@ An obstacle and empty space is marked as 1 and 0 respectively in the grid.">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://qifuuu.com/2017/02/19/2017-02-19-PathII/" data-title="63. Unique Paths II | Qi Fu&#39;s blog" data-tsina="511934579" class="share clearfix">
+	  <div data-url="http://qifuuu.com/2017/04/15/2017-04-15-553.-Optimal Division/" data-title="Optimal Division | Qi Fu&#39;s blog" data-tsina="511934579" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -153,19 +157,11 @@ An obstacle and empty space is marked as 1 and 0 respectively in the grid.">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/02/19/2017-02-19-Min-stack/" title="155. Min Stack">
-  <strong>上一篇：</strong><br/>
-  <span>
-  155. Min Stack</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/02/19/2017-02-19-move-zeros/"  title="283. Move Zeroes">
+<a href="/2017/03/21/2017-03-21-Let's-begin-our-first-app/"  title="Modules and Applications">
  <strong>下一篇：</strong><br/> 
- <span>283. Move Zeroes
+ <span>Modules and Applications
 </span>
 </a>
 </div>
@@ -186,7 +182,7 @@ An obstacle and empty space is marked as 1 and 0 respectively in the grid.">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-1"><span class="toc-number">1.</span> <span class="toc-text">Solution 1:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code"><span class="toc-number">1.1.</span> <span class="toc-text">Code</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">1.</span> <span class="toc-text">Solution:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code"><span class="toc-number">1.1.</span> <span class="toc-text">Code:</span></a></li></ol></li></ol>
  
   </div>
 
