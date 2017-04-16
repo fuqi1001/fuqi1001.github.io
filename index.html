@@ -90,7 +90,7 @@
 </header>
     <div class="article-content">
         
-        <h2 id="Structure-of-a-Node-App"><a href="#Structure-of-a-Node-App" class="headerlink" title="Structure of a Node App"></a>Structure of a Node App</h2><p>(Before start read, please clone the <a href="https://github.com/fuqi1001/Web-programming-tutorial/tree/master/lecture_02" target="_blank" rel="external">code</a> from git)</p>
+        <h2 id="Structure-of-a-Node-App"><a href="#Structure-of-a-Node-App" class="headerlink" title="Structure of a Node App"></a>Structure of a Node App</h2><p>(Before start read, please clone the <a href="https://github.com/fuqi1001/Web-programming-tutorial/tree/master/lecture_02">code</a> from git)</p>
 <h3 id="What-is-a-Node-app"><a href="#What-is-a-Node-app" class="headerlink" title="What is a Node app?"></a>What is a Node app?</h3><p>Ultimately, you can view a node app as a series of scripts that are run together.</p>
 <p>A web application, for example, would have the following scripts</p>
 <ul>
@@ -98,71 +98,11 @@
 <li>A second script that runs as a background process and researches information to add to the databases</li>
 <li>A third script that analyzes newly researched information and creates statistics on the new data</li>
 </ul>
-<h3 id="What-makes-an-app"><a href="#What-makes-an-app" class="headerlink" title="What makes an app?"></a>What makes an app?</h3><p>Generally, your application will have the following structure in this course;<br>Project folder</p>
-<ul>
-<li>package.json; describes the application, and its dependencies</li>
-<li>node_modules/; stores all the dependencies</li>
-<li>server.js; initializes and runs a server</li>
-<li>views/</li>
-<li>static/</li>
-</ul>
-<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><p>The package.json stores information about your project</p>
-<ul>
-<li>Name</li>
-<li>Repository</li>
-<li>License Type</li>
-<li>List of dependencies</li>
-<li>List of developer dependencie◦</li>
-<li>Start comman</li>
-</ul>
-<p>When starting a project, navigate to your folder and use the npm init command to interactivel create the start of that file</p>
-<p><strong>Dependencies</strong></p>
-<p>It would be very difficult to reinvent every component of an application, every time you start coding.</p>
-<p>Node allows authors to publish their code online on Github or on NPM (Node Package Manager); anyone can then download their code through the npm application and install it as a dependency towards a project.</p>
-<p>References to these dependencies can be saved to your package.json file. Dependencies are exposed in the form of modules. You can install dependencies with the following command:</p>
-<ul>
-<li>npm install PACKAGENAME –save</li>
-<li>You must include –save to save it to your package.json file</li>
-<li>Points will be deducted if you do not save all your dependencies.</li>
-</ul>
-<h3 id="Installing-the-app"><a href="#Installing-the-app" class="headerlink" title="Installing the app"></a>Installing the app</h3><p>Node runs off of a series of dependencies, which are managed through the package manager, NPM When download a node application, you will be downloading it without dependencies, so you must install them on download</p>
-<ul>
-<li>npm install</li>
-<li>Dependencies are stored in the node_modules folder</li>
-</ul>
-<h3 id="Using-the-app"><a href="#Using-the-app" class="headerlink" title="Using the app"></a>Using the app</h3><p>Once your dependencies are installed, you can start your app</p>
-<ul>
-<li>npm start</li>
-<li>This will scan your package.json folder and run the file that is registered as your application entry point</li>
-</ul>
-<h3 id="Setting-up-you-application"><a href="#Setting-up-you-application" class="headerlink" title="Setting up you application"></a>Setting up you application</h3><p>When setting up an application, you will do the following steps:</p>
-<ul>
-<li>Make a new folder for the application</li>
-<li>Run npm init and go through the walkthrough</li>
-<li>Open package.json and update the “scripts” section and add a property of:</li>
-<li>“start”: “node app.js”</li>
-<li>Where app.js is the name of the file you want to run on start</li>
-<li>Install your dependencies and save them to the package</li>
-<li>npm install PACKAGENAME –save</li>
-<li>Write some code in your starting file</li>
-<li>Run app with npm start</li>
-</ul>
-<h3 id="Let’s-design-a-prompt-calculator-app"><a href="#Let’s-design-a-prompt-calculator-app" class="headerlink" title="Let’s design a prompt calculator app"></a>Let’s design a prompt calculator app</h3><p>Demo code for a calculator app ➡️  <a href="https://github.com/fuqi1001/Web-programming-tutorial/tree/master/lecture_02/calculator_app_example" target="_blank" rel="external">git</a></p>
-<h3 id="What-is-a-module"><a href="#What-is-a-module" class="headerlink" title="What is a module?"></a>What is a module?</h3><p>Generally, a module is an individual unit that can be plugged into another system or codebase with relative ease. Modules do not have to be related, allowing you to write a system that allows many different things to interact with each other by writing code that glues them all together.</p>
-<p>They are very flexible, and allow you to organize your code very well!<br>In Node.js, you will be using modules everywhere. In our case, a module will be a specific object (think, an instance of a class) that has certain methods and data that you can access from other scripts.</p>
-<h4 id="Require"><a href="#Require" class="headerlink" title="Require"></a>Require</h4><p>There is a special, global function called require, which will allow you to import code from other files, packages, etc.</p>
-<p>When you require a file / package, you will be accessing whatever the programmer assigned to be exported in that file. From there, you can use the code.</p>
-<p>This allows you to make very small, isolated code that performs related functions.</p>
-<h4 id="How-do-I-make-my-code-‘requirable’"><a href="#How-do-I-make-my-code-‘requirable’" class="headerlink" title="How do I make my code ‘requirable’?"></a>How do I make my code ‘requirable’?</h4><p>There is another global variable called module, which has a property called exports on it.</p>
-<p>When you require a file / package, it will take whatever is assigned to the module.exports<br>variable in a package. You can export anything you want: a function, a number, or an object that allows you to do any combination of these things.</p>
-<p>You can see an example of this in the <code>my_module.js</code> and <code>requiring_my_module.js</code><br>files.</p>
-<p>You can use those files in order to get started making your own modules!</p>
-<p><strong> DEOM is Here </strong></p>
-<p><a href="https://github.com/fuqi1001/Web-programming-tutorial/tree/master/lecture_02/calculator_module_example" target="_blank" rel="external">git</a></p>
-
         
         
         <p class="article-more-link">
+          
+            <a href="/2017/03/21/2017-03-21-Let's-begin-our-first-app/#more">Read More</a>
           
        </p>
     </div>
@@ -189,73 +129,6 @@
 	
 	  	<span></span>
 		<a href="/2017/03/21/2017-03-21-Let's-begin-our-first-app/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/03/20/2017-03-20-Intro-to-JavaScript/" title="Intro to JavaScript" itemprop="url">Intro to JavaScript</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Qi Fu" target="_blank" itemprop="author">Qi Fu</a>
-		
-  <p class="article-time">
-    <time datetime="2017-03-20T04:00:00.000Z" itemprop="datePublished"> Published 2017-03-20</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="Introducing-Node-js"><a href="#Introducing-Node-js" class="headerlink" title="Introducing Node.js"></a>Introducing Node.js</h2><p>Before coding, make sure your Node.js install.</p>
-<p>test in command line: node -v</p>
-<p>(By the way, high recommend install Node with <a href="http://nvm.sh">NVM</a>)</p>
-<p><strong> <a href="https://github.com/fuqi1001/Web-programming-tutorial/tree/master/lecture_01">Code in git</a> </strong><br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2017/03/20/2017-03-20-Intro-to-JavaScript/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/web-programming/">web programming</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/JavaScript/">JavaScript</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2017/03/20/2017-03-20-Intro-to-JavaScript/#disqus_thread" class="comments-count-link">Comments</a>
 	
 </div>
 
@@ -333,6 +206,73 @@ Output:
 	
 	  	<span></span>
 		<a href="/2017/03/20/2017-03-20-01-matrix/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/03/20/2017-03-20-Intro-to-JavaScript/" title="Intro to JavaScript" itemprop="url">Intro to JavaScript</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Qi Fu" target="_blank" itemprop="author">Qi Fu</a>
+		
+  <p class="article-time">
+    <time datetime="2017-03-20T04:00:00.000Z" itemprop="datePublished"> Published 2017-03-20</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="Introducing-Node-js"><a href="#Introducing-Node-js" class="headerlink" title="Introducing Node.js"></a>Introducing Node.js</h2><p>Before coding, make sure your Node.js install.</p>
+<p>test in command line: node -v</p>
+<p>(By the way, high recommend install Node with <a href="http://nvm.sh">NVM</a>)</p>
+<p><strong> <a href="https://github.com/fuqi1001/Web-programming-tutorial/tree/master/lecture_01">Code in git</a> </strong><br>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2017/03/20/2017-03-20-Intro-to-JavaScript/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/web-programming/">web programming</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/JavaScript/">JavaScript</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2017/03/20/2017-03-20-Intro-to-JavaScript/#disqus_thread" class="comments-count-link">Comments</a>
 	
 </div>
 
@@ -748,7 +688,7 @@ return [1,6],[8,10],[15,18].
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/02/19/2017-02-19-populating-next-right-pointer-in-each-node/" title="116. Populating Next Right Pointers in Each Node" itemprop="url">116. Populating Next Right Pointers in Each Node</a>
+      <a href="/2017/02/19/2017-02-19-move-zeros/" title="283. Move Zeroes" itemprop="url">283. Move Zeroes</a>
   </h1>
   <p class="article-author">By
        
@@ -761,19 +701,13 @@ return [1,6],[8,10],[15,18].
 </header>
     <div class="article-content">
         
-        <p>Given a binary tree</p>
-<pre><code>struct TreeLinkNode {
-      TreeLinkNode *left;
-      TreeLinkNode *right;
-      TreeLinkNode *next;
-}
-</code></pre><p>Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.</p>
-<p>Initially, all next pointers are set to NULL.</p>
+        <p>Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.</p>
+<p>For example, given <code>nums = [0, 1, 0, 3, 12]</code>, after calling your function, nums should be <code>[1, 3, 12, 0, 0]</code>.<br>
         
         
         <p class="article-more-link">
           
-            <a href="/2017/02/19/2017-02-19-populating-next-right-pointer-in-each-node/#more">Read More</a>
+            <a href="/2017/02/19/2017-02-19-move-zeros/#more">Read More</a>
           
        </p>
     </div>
@@ -799,7 +733,7 @@ return [1,6],[8,10],[15,18].
 <div class="comments-count">
 	
 	  	<span></span>
-		<a href="/2017/02/19/2017-02-19-populating-next-right-pointer-in-each-node/#disqus_thread" class="comments-count-link">Comments</a>
+		<a href="/2017/02/19/2017-02-19-move-zeros/#disqus_thread" class="comments-count-link">Comments</a>
 	
 </div>
 
