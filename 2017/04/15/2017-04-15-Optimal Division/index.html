@@ -6,7 +6,7 @@
   <meta name="google-site-verification" content="Rbcp6f4xqLj0DF5t2cFlNLbHq1W2vbrLPL6HoCx9Rt8" />
   <meta name="baidu-site-verification" content="S56pX4djhn" />
   
-    <title>122. Best Time to Buy and Sell Stock II | Qi Fu&#39;s blog</title>
+    <title>553. Optimal Division | Qi Fu&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Qi Fu">
@@ -15,19 +15,19 @@
     
 
     <meta name="keywords" content="傅琦, fuqi1001, qifu, fuqi1001.github.io, Qi Fu&#39;s blog, qifuuu">
-    <meta name="description" content="Say you have an array for which the ith element is the price of a given stock on day i.
-Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one a">
+    <meta name="description" content="Given a list of positive integers, the adjacent integers will perform the float division. For example, [2,3,4] -&amp;gt; 2 / 3 / 4.
+However, you can add any number of parenthesis at any position to change">
 <meta property="og:type" content="article">
-<meta property="og:title" content="122. Best Time to Buy and Sell Stock II">
-<meta property="og:url" content="http://qifuuu.com/2017/02/18/2017-02-18-Best-time-to-sell-and-buy-stock-II/index.html">
+<meta property="og:title" content="553. Optimal Division">
+<meta property="og:url" content="http://qifuuu.com/2017/04/15/2017-04-15-Optimal Division/index.html">
 <meta property="og:site_name" content="Qi Fu's blog">
-<meta property="og:description" content="Say you have an array for which the ith element is the price of a given stock on day i.
-Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one a">
-<meta property="og:updated_time" content="2017-03-18T03:55:48.000Z">
+<meta property="og:description" content="Given a list of positive integers, the adjacent integers will perform the float division. For example, [2,3,4] -&amp;gt; 2 / 3 / 4.
+However, you can add any number of parenthesis at any position to change">
+<meta property="og:updated_time" content="2017-04-16T03:24:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="122. Best Time to Buy and Sell Stock II">
-<meta name="twitter:description" content="Say you have an array for which the ith element is the price of a given stock on day i.
-Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one a">
+<meta name="twitter:title" content="553. Optimal Division">
+<meta name="twitter:description" content="Given a list of positive integers, the adjacent integers will perform the float division. For example, [2,3,4] -&amp;gt; 2 / 3 / 4.
+However, you can add any number of parenthesis at any position to change">
 
     
     <link rel="alternative" href="/atom.xml" title="Qi Fu&#39;s blog" type="application/atom+xml">
@@ -82,14 +82,14 @@ Design an algorithm to find the maximum profit. You may complete as many transac
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/02/18/2017-02-18-Best-time-to-sell-and-buy-stock-II/" title="122. Best Time to Buy and Sell Stock II" itemprop="url">122. Best Time to Buy and Sell Stock II</a>
+      <a href="/2017/04/15/2017-04-15-Optimal Division/" title="553. Optimal Division" itemprop="url">553. Optimal Division</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Qi Fu" target="_blank" itemprop="author">Qi Fu</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-18T05:00:00.000Z" itemprop="datePublished"> 發表於 2017-02-18</time>
+    <time datetime="2017-04-15T04:00:00.000Z" itemprop="datePublished"> 發表於 2017-04-15</time>
     
   </p>
 </header>
@@ -98,17 +98,33 @@ Design an algorithm to find the maximum profit. You may complete as many transac
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-1"><span class="toc-number">1.</span> <span class="toc-text">Solution 1:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code"><span class="toc-number">1.1.</span> <span class="toc-text">Code</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-2"><span class="toc-number">2.</span> <span class="toc-text">Solution 2:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-1"><span class="toc-number">2.1.</span> <span class="toc-text">Code</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">1.</span> <span class="toc-text">Solution:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code"><span class="toc-number">1.1.</span> <span class="toc-text">Code:</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
-<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p>
+		<p>Given a list of <strong>positive integers</strong>, the adjacent integers will perform the float division. For example, [2,3,4] -&gt; 2 / 3 / 4.</p>
+<p>However, you can add any number of parenthesis at any position to change the priority of operations. You should find out how to add parenthesis to get the maximum result, and return the corresponding expression in string format. <strong>Your expression should NOT contain redundant parenthesis.</strong></p>
 <a id="more"></a>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1:"></a>Solution 1:</h2><p>Because we can complete as many transactions as we like, buy and sell one stock in one day, so we can get all difference between two numbers. Set a variable <code>profit</code>, traversal the stock prices array, keep add <code>prices[i+1] - prices[i]</code>.</p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(prices == <span class="keyword">null</span> || prices.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> profit = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; prices.length - <span class="number">1</span>; i++)&#123;</div><div class="line">            <span class="keyword">if</span>(prices[i] &lt; prices[i + <span class="number">1</span>]) &#123;</div><div class="line">                profit += prices[i+<span class="number">1</span>] - prices[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> profit;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2:"></a>Solution 2:</h2><p>(greedy)<br>Find each upward interval, use variable <code>index</code> keep the lowest price in the interval, and if prices start to go down, <code>prices[i] &lt; prices[i-1]</code>, add this interval’s profit to variable <code>profit</code>.</p>
-<h3 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(prices == <span class="keyword">null</span> || prices.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> profit = <span class="number">0</span>;     </div><div class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;      <span class="comment">//track the lowest price, start of an upward interval</span></div><div class="line">        <span class="keyword">int</span> i = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>( i = <span class="number">1</span>; i &lt; prices.length; i++)&#123;</div><div class="line">            <span class="keyword">if</span>(prices[i] &lt; prices[i - <span class="number">1</span>]) &#123;     <span class="comment">// if prices[i] &lt; prices[i - 1], prices start to go down.</span></div><div class="line">                profit += prices[i-<span class="number">1</span>] - prices[index];      <span class="comment">//add the profit</span></div><div class="line">                index = i;              <span class="comment">// keep the new lowest price for next upward interval</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//get the last time profit.</span></div><div class="line">        </div><div class="line">        <span class="keyword">if</span>(prices[index] &lt; prices[i - <span class="number">1</span>])&#123;</div><div class="line">            profit += prices[i - <span class="number">1</span>] - prices[index];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> profit;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>  
+<p><strong>Example：</strong></p>
+<pre><code>Input: [1000,100,10,2]
+Output: &quot;1000/(100/10/2)&quot;
+Explanation:
+1000/(100/10/2) = 1000/((100/10)/2) = 200
+However, the bold parenthesis in &quot;1000/((100/10)/2)&quot; are redundant, 
+since they don&apos;t influence the operation priority. 
+So you should return &quot;1000/(100/10/2)&quot;. 
+
+Other cases:
+1000/(100/10)/2 = 50
+1000/(100/(10/2)) = 50
+1000/100/10/2 = 0.5
+1000/100/(10/2) = 2
+</code></pre><p><strong>Note:</strong></p>
+<pre><code>1. The length of the input array is [1, 10].
+2. Elements in the given array will be in range [2, 1000].
+3. There is only one optimal division for each test case.
+</code></pre><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h2><p>You only need to mininize b here, because all the c/d/…will be flipped to the numerator position</p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">optimalDivision</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(nums.length == <span class="number">1</span>) <span class="keyword">return</span> nums[<span class="number">0</span>]+<span class="string">""</span>;</div><div class="line">        <span class="keyword">if</span>(nums.length == <span class="number">2</span>) &#123;</div><div class="line">            String res= nums[<span class="number">0</span>] +<span class="string">"/"</span>+nums[<span class="number">1</span>];</div><div class="line">            <span class="keyword">return</span> res;</div><div class="line">        &#125;</div><div class="line">        String res = nums[<span class="number">0</span>] +<span class="string">"/"</span>;</div><div class="line">        String temp = nums[<span class="number">1</span>]+<span class="string">""</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            temp+= <span class="string">"/"</span>+nums[i];</div><div class="line">        &#125;</div><div class="line">        res = res + <span class="string">"("</span> +temp+ <span class="string">")"</span>;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -130,7 +146,7 @@ Design an algorithm to find the maximum profit. You may complete as many transac
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://qifuuu.com/2017/02/18/2017-02-18-Best-time-to-sell-and-buy-stock-II/" data-title="122. Best Time to Buy and Sell Stock II | Qi Fu&#39;s blog" data-tsina="511934579" class="share clearfix">
+	  <div data-url="http://qifuuu.com/2017/04/15/2017-04-15-Optimal Division/" data-title="553. Optimal Division | Qi Fu&#39;s blog" data-tsina="511934579" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -143,19 +159,11 @@ Design an algorithm to find the maximum profit. You may complete as many transac
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/02/18/2017-02-17-Add-Two-Number-II/" title="445. Add Two Numbers II">
-  <strong>上一篇：</strong><br/>
-  <span>
-  445. Add Two Numbers II</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/02/18/2017-02-18-Best-Time-To-Buy-and-Sell-stock/"  title="121. Best Time to Buy and Sell Stock">
+<a href="/2017/03/21/2017-03-21-Let's-begin-our-first-app/"  title="Modules and Applications">
  <strong>下一篇：</strong><br/> 
- <span>121. Best Time to Buy and Sell Stock
+ <span>Modules and Applications
 </span>
 </a>
 </div>
@@ -176,7 +184,7 @@ Design an algorithm to find the maximum profit. You may complete as many transac
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-1"><span class="toc-number">1.</span> <span class="toc-text">Solution 1:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code"><span class="toc-number">1.1.</span> <span class="toc-text">Code</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-2"><span class="toc-number">2.</span> <span class="toc-text">Solution 2:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-1"><span class="toc-number">2.1.</span> <span class="toc-text">Code</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">1.</span> <span class="toc-text">Solution:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code"><span class="toc-number">1.1.</span> <span class="toc-text">Code:</span></a></li></ol></li></ol>
  
   </div>
 
